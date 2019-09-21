@@ -1,0 +1,91 @@
+<div class="animated fadeIn">
+  <div class="row" *ngIf="configs">
+    <div
+      class="col-lg-10 col-12 mx-auto"
+      *ngFor="let key of objectKeys(configs)"
+    >
+      <div class="card">
+        <div class="card-header">
+          <span class="h5">
+            {{ key }}
+          </span>
+          <button
+            type="button"
+            (click)="edit(key)"
+            class="btn btn-sm btn-secondary float-right"
+          >
+            <i class="fa fa-edit"></i> Edit
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let config of configs[key]; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ config.name }}</td>
+                  <td>{{ config.value }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/ .row -->
+  <button
+    (click)="confirm.show()"
+    type="button"
+    class="btn btn-primary btn-pill"
+    style="position: fixed;
+  right: 1em;
+  bottom: 1em;"
+  >
+    <i class="fa fa-refresh mr-1"></i> Reset
+  </button>
+</div>
+
+<div
+  bsModal
+  #confirm="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="confirmLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Confirmation
+        </h4>
+      </div>
+      <div class="modal-body d-flex flex-column">
+        <span class="h5">
+          Are you sure to proceed?
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="reset()">
+          Confirm
+        </button>
+        <button type="button" class="btn btn-link" (click)="confirm.hide()">
+          Cancel
+        </button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

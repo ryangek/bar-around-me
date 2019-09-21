@@ -1,0 +1,68 @@
+<router-outlet></router-outlet>
+<div
+  bsModal
+  #confirm="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="confirmLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Confirmation
+        </h4>
+      </div>
+      <div class="modal-body d-flex flex-column">
+        <span class="h5">
+          Are you sure to proceed?
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onConfirm(); confirm.hide()">
+          Confirm
+        </button>
+        <button type="button" class="btn btn-link" (click)="confirm.hide()">
+          Cancel
+        </button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<div
+  bsModal
+  #notify="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="notifyLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Title</h4>
+      </div>
+      <div class="modal-body d-flex flex-column">
+        <span class="h5" style="width: 100%">
+          Notification
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="notify.hide()">
+          Close
+        </button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
